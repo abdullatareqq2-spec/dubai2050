@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dubai 2050 | Interactive AP Human Geography Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-bg"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#hero">Dubai 2050</a>
+    <nav class="site-nav">
+      <a href="#engine">Time Engine</a>
+      <a href="#units">7 Units</a>
+      <a href="#story">Timeline</a>
+      <a href="#spatial">Spatial View</a>
+      <a href="#sources">Sources</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="hero">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">AP Human Geography | Future Earth 2050</p>
+        <h1>Explore how Dubai could evolve from today to 2050.</h1>
+        <p class="hero-text">
+          This website is built as an interactive forecast instead of a static report. Move through time,
+          watch the city transform, and see how each AP Human Geography unit changes with it.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#engine">Start the forecast</a>
+          <a class="button secondary" href="#story">Scroll the timeline</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="mini-scene" aria-hidden="true">
+          <div class="mini-sky"></div>
+          <div class="mini-sun"></div>
+          <div class="mini-building b1"></div>
+          <div class="mini-building b2"></div>
+          <div class="mini-building b3"></div>
+          <div class="mini-building b4"></div>
+          <div class="mini-building b5"></div>
+          <div class="mini-line"></div>
+        </div>
+        <div class="hero-stat-grid">
+          <div class="hero-stat glass">
+            <span class="label">Core question</span>
+            <strong>How will human geography shape Dubai by 2050?</strong>
+          </div>
+          <div class="hero-stat glass">
+            <span class="label">Main idea</span>
+            <strong>Population, culture, land use, technology, and economy are all connected.</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section engine-section" id="engine">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Interactive forecast engine</p>
+        <h2>Slide through time</h2>
+        <p>Choose any year from 2025 to 2050 and watch Dubai change across major human geography factors.</p>
+      </div>
+
+      <div class="engine-layout">
+        <div class="engine-controls glass reveal">
+          <div class="year-display">
+            <span>Selected year</span>
+            <strong id="selectedYear">2025</strong>
+            <small id="yearLabel">Baseline conditions with major development already underway.</small>
+          </div>
+
+          <div class="range-wrap">
+            <div class="range-topline">
+              <span>2025</span>
+              <span>2050</span>
+            </div>
+            <input type="range" id="yearSlider" min="2025" max="2050" value="2025" step="1">
+            <div class="range-markers">
+              <button class="year-chip active" data-year="2025">2025</button>
+              <button class="year-chip" data-year="2030">2030</button>
+              <button class="year-chip" data-year="2040">2040</button>
+              <button class="year-chip" data-year="2050">2050</button>
+            </div>
+          </div>
+
+          <div class="factor-panel">
+            <h3>Selected-year forecast</h3>
+            <p id="yearSummary">
+              Dubai is functioning as a global city with fast population growth, strong migration flows, and a heavy push toward smart urban infrastructure.
+            </p>
+            <ul id="keyChanges" class="key-changes"></ul>
+          </div>
+        </div>
+
+        <div class="engine-visual glass reveal">
+          <div class="city-scene" id="cityScene" data-stage="2025" aria-label="Animated Dubai future scene">
+            <div class="scene-gradient"></div>
+            <div class="scene-grid"></div>
+            <div class="scene-sun"></div>
+            <div class="scene-stars"></div>
+            <div class="scene-cloud cloud-a"></div>
+            <div class="scene-cloud cloud-b"></div>
+            <div class="scene-drones">
+              <span class="drone d1"></span>
+              <span class="drone d2"></span>
+            </div>
+            <div class="scene-label l1">Smart mobility</div>
+            <div class="scene-label l2">Vertical farming</div>
+            <div class="scene-label l3">Green corridors</div>
+            <div class="scene-label l4">Knowledge economy</div>
+            <div class="water-band"></div>
+            <div class="transit-line"></div>
+            <div class="green-band"></div>
+            <div class="building cluster-a"></div>
+            <div class="building cluster-b"></div>
+            <div class="building cluster-c"></div>
+            <div class="building cluster-d"></div>
+            <div class="building cluster-e"></div>
+            <div class="building cluster-f"></div>
+            <div class="building spire"></div>
+          </div>
+          <div class="visual-caption">
+            <strong>Visual timeline</strong>
+            <span>The scene becomes denser, greener, and more automated as you move toward 2050.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="metrics-grid reveal" id="metricsGrid"></div>
+    </section>
+
+    <section class="section units-section" id="units">
+      <div class="section-heading reveal">
+        <p class="eyebrow">All 7 AP Human Geography units</p>
+        <h2>What changes in each unit?</h2>
+        <p>Pick a unit to see current evidence, the selected-year shift, and the long-term 2050 prediction.</p>
+      </div>
+
+      <div class="units-layout">
+        <div class="unit-list reveal" id="unitList"></div>
+        <div class="unit-detail glass reveal">
+          <div class="unit-detail-header">
+            <p class="unit-tag" id="unitTag">Unit 1</p>
+            <h3 id="unitTitle">Thinking Geographically</h3>
+          </div>
+          <div class="unit-detail-grid">
+            <div>
+              <span class="detail-label">Current evidence</span>
+              <p id="unitCurrent"></p>
+            </div>
+            <div>
+              <span class="detail-label">At the selected year</span>
+              <p id="unitYearView"></p>
+            </div>
+            <div>
+              <span class="detail-label">2050 prediction</span>
+              <p id="unitFuture"></p>
+            </div>
+            <div>
+              <span class="detail-label">Why it matters</span>
+              <p id="unitWhy"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section story-section" id="story">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Scroll-driven timeline</p>
+        <h2>Watch the future unfold</h2>
+        <p>As you scroll, the website jumps to major years and explains what is changing in Dubai at each stage.</p>
+      </div>
+
+      <div class="story-layout">
+        <div class="story-visual glass reveal">
+          <div class="story-sticky">
+            <div class="story-year" id="storyYear">2025</div>
+            <div class="story-scene" id="storyScene" data-stage="2025">
+              <div class="story-ring ring-a"></div>
+              <div class="story-ring ring-b"></div>
+              <div class="story-core"></div>
+              <div class="story-pulse pulse-a"></div>
+              <div class="story-pulse pulse-b"></div>
+            </div>
+            <p id="storyCaption">Dubai begins as a global city with rapid migration, construction, and policy planning already shaping the future.</p>
+          </div>
+        </div>
+
+        <div class="story-steps">
+          <article class="story-step glass reveal active-step" data-story-year="2025">
+            <p class="story-step-year">2025</p>
+            <h3>Global city baseline</h3>
+            <p>Dubai already functions as a world city. Migration drives population growth, major infrastructure is in place, and the government is planning for a more digital and diversified future.</p>
+          </article>
+          <article class="story-step glass reveal" data-story-year="2030">
+            <p class="story-step-year">2030</p>
+            <h3>Automation becomes visible</h3>
+            <p>Autonomous transport and smart systems begin to shape everyday movement. Economic policy pushes technology, tourism, logistics, and innovation more strongly.</p>
+          </article>
+          <article class="story-step glass reveal" data-story-year="2040">
+            <p class="story-step-year">2040</p>
+            <h3>Urban planning changes the city</h3>
+            <p>New centers, green corridors, and better-connected districts reduce pressure on the historic core. Dubai looks more polycentric and more planned around quality of life.</p>
+          </article>
+          <article class="story-step glass reveal" data-story-year="2050">
+            <p class="story-step-year">2050</p>
+            <h3>Highly networked future city</h3>
+            <p>By 2050, Dubai is projected to be more data-driven, more climate-aware, and more dependent on knowledge industries, while still dealing with water, heat, and food-security challenges.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section spatial-section" id="spatial">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Spatial importance</p>
+        <h2>Why location still matters</h2>
+        <p>Dubai's geography helps explain why it grows so fast and why its future is tied to trade, migration, and regional connectivity.</p>
+      </div>
+
+      <div class="spatial-layout">
+        <div class="spatial-card glass reveal">
+          <h3>Dubai in regional space</h3>
+          <svg viewBox="0 0 600 340" class="spatial-svg" role="img" aria-label="Stylized map showing Dubai's regional position">
+            <rect x="0" y="0" width="600" height="340" rx="26" fill="rgba(8,16,30,0.25)"></rect>
+            <path d="M108 120 C155 70, 240 60, 302 82 C350 99, 390 106, 426 148 C450 176, 456 214, 430 235 C390 266, 356 273, 314 262 C274 252, 237 250, 204 225 C166 196, 134 176, 108 120 Z" fill="rgba(189,216,255,0.18)" stroke="rgba(189,216,255,0.55)" stroke-width="3"></path>
+            <circle cx="326" cy="172" r="10" fill="#f8d28b"></circle>
+            <text x="344" y="177" fill="#fff" font-size="16" font-family="Inter, Arial">Dubai</text>
+            <line x1="95" y1="55" x2="292" y2="158" stroke="rgba(248,210,139,0.7)" stroke-width="2.5" stroke-dasharray="6 6"></line>
+            <line x1="500" y1="55" x2="344" y2="161" stroke="rgba(248,210,139,0.7)" stroke-width="2.5" stroke-dasharray="6 6"></line>
+            <line x1="494" y1="276" x2="341" y2="183" stroke="rgba(248,210,139,0.7)" stroke-width="2.5" stroke-dasharray="6 6"></line>
+            <circle cx="95" cy="55" r="6" fill="#9ed7ff"></circle>
+            <circle cx="500" cy="55" r="6" fill="#9ed7ff"></circle>
+            <circle cx="494" cy="276" r="6" fill="#9ed7ff"></circle>
+            <text x="40" y="48" fill="#cdd5e5" font-size="15" font-family="Inter, Arial">Europe</text>
+            <text x="508" y="48" fill="#cdd5e5" font-size="15" font-family="Inter, Arial">Asia</text>
+            <text x="502" y="298" fill="#cdd5e5" font-size="15" font-family="Inter, Arial">Africa</text>
+          </svg>
+          <p class="spatial-note">This stylized map highlights Dubai's relative position between Europe, Asia, and Africa, which helps explain its role in trade, migration, aviation, and logistics.</p>
+        </div>
+        <div class="spatial-points reveal">
+          <div class="glass spatial-bullet">
+            <h3>Thinking geographically</h3>
+            <p>Dubai's site and situation make it a gateway city, not just a local city. That makes geography a major reason for its growth.</p>
+          </div>
+          <div class="glass spatial-bullet">
+            <h3>Migration and culture</h3>
+            <p>Its position makes it attractive to workers, investors, and tourists from many regions, increasing cultural diversity.</p>
+          </div>
+          <div class="glass spatial-bullet">
+            <h3>Urban and economic development</h3>
+            <p>Regional connectivity supports airports, ports, free zones, finance, and service industries, which shape land use and jobs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sources-section" id="sources">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Works cited</p>
+        <h2>Sources used for evidence and prediction</h2>
+      </div>
+      <div class="sources-card glass reveal">
+        <ul class="sources-list">
+          <li>Dubai Statistics Center. Population Bulletin Emirate of Dubai, 2024.</li>
+          <li>Dubai 2040 Urban Master Plan.</li>
+          <li>The Official Portal of the UAE Government. Dubai Autonomous Transportation Strategy.</li>
+          <li>The Official Portal of the UAE Government. National Food Security Strategy 2051.</li>
+          <li>Dubai Economic Agenda D33.</li>
+          <li>World Bank and UAE government sources on migration, development, and diversification.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
